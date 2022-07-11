@@ -1,25 +1,29 @@
 @media (max-width: 1199px) {
+    .section .container {
+        padding-top: 70px;
+    }
     .aside {
         left: -270px;
     }
-
-    .main_content {
-        padding-left: 0;
+    .aside .nav-toggler {
+        display: flex;
+        left: 30px;
     }
-
+    .section {
+        left: 0;
+    }
+    .aside.open {
+        left: 0;
+    }
+    .aside .nav-toggler.open {
+        left: 300px;
+    }
+    .section.open {
+        left: 270px;
+    }
     .about .about-content .personal-info .info-item p span {
         display: block;
         margin-left: 0;
-    }
-
-    .home-img::after {
-        right: 20px;
-        bottom: -40px;
-    }
-
-    .home-img::before {
-        left: 20px;
-        top: -40px;
     }
 }
 

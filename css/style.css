@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
+@keyframes slideSection {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
 :root {
     --bg-black-900: #f2f2fc;
     --bg-black-100: #fdf9ff;
@@ -38,18 +47,6 @@ a:visited {
     color: var(--text-black-900);
 }
 
-.section {
-    background: var(--bg-black-900);
-    min-height: 100vh;
-    display: block;
-    opacity: 1;
-    padding: 0 30px;
-}
-
-.main_content {
-    padding-left: 270px;
-}
-
 ul {
     list-style: none;
 }
@@ -71,6 +68,33 @@ ul {
     max-width: 1100px;
     width: 100%;
     margin: auto;
+}
+
+.section {
+    background: var(--bg-black-900);
+    min-height: 100vh;
+    display: block;
+    opacity: 1;
+    padding: 0 30px;
+    position: fixed;
+    left: 270px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all .3s ease;
+}
+
+.section.active {
+    z-index: 2;
+    opacity: 1;
+    animation: slideSection 1s ease;
+}
+
+section.back-section {
+    z-index: 1;
 }
 
 .section .container {
@@ -153,6 +177,7 @@ ul {
     justify-content: center;
     align-items: center;
     border-right: 1px solid var(--bg-black-50);
+    transition: all .3s ease;
 }
 
 .aside .logo {
@@ -215,6 +240,7 @@ ul {
     display: none;
     align-items: center;
     justify-content: center;
+    transition: all .3s ease;
 }
 
 .aside .nav-toggler span {
@@ -225,6 +251,15 @@ ul {
     position: relative;
 }
 
+.aside .nav-toggler.open span {
+    background-color: transparent;
+}
+
+.aside .nav-toggler.open span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
 .aside .nav-toggler span::before {
     content: '';
     height: 2px;
@@ -233,6 +268,11 @@ ul {
     position: absolute;
     top: -6px;
     left: 0;
+}
+
+.aside .nav-toggler.open span::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
 
 .aside .nav-toggler span::after {
@@ -276,8 +316,8 @@ ul {
 }
 
 .home .home-info {
-    flex: 0 0 60%;
-    max-width: 60%;
+    flex: 0 0 53%;
+    max-width: 53%;
 }
 
 h3.hello {
@@ -308,15 +348,14 @@ h3.my-profession {
 }
 
 .home .home-img {
-    flex: 0 0 40%;
-    max-width: 40%;
+    flex: 0 0 47%;
+    max-width: 47%;
     text-align: center;
     position: relative;
 }
 
 .home .home-img img {
     height: 400px;
-    width: 300px;
     margin: auto;
     border-radius: 5px;
 }
@@ -327,7 +366,7 @@ h3.my-profession {
     height: 80px;
     width: 80px;
     right: 5px;
-    bottom: -25px;
+    bottom: -50px;
     border-bottom: 10px solid var(--skin-color);
     border-right: 10px solid var(--skin-color);
 }
@@ -337,8 +376,8 @@ h3.my-profession {
     position: absolute;
     height: 80px;
     width: 80px;
-    left: 5px;
-    top: -25px;
+    left: -10px;
+    top: -50px;
     border-top: 10px solid var(--skin-color);
     border-left: 10px solid var(--skin-color);
 }
@@ -410,7 +449,6 @@ h3.my-profession {
 }
 
 .about .about-content .personal-info .buttons .btn {
-    margin-right: 15px;
     margin-top: 15px;
 }
 
